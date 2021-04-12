@@ -1,6 +1,6 @@
 tasks:
-  build:
-    - image: razorci/ruby
+  rspec:
+    runner: ruby:2.6 
     steps:
     - run: bundle install
 
