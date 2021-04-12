@@ -1,15 +1,8 @@
-global:
-  runner:
-    containers:
-    - image: razorci/ruby
-    - image: amazon/aws-cli
-
 tasks:
   build:
     - image: razorci/ruby
     steps:
     - run: bundle install
-    # - run: jekyll build
 
 deploy:
   depends: [build]
