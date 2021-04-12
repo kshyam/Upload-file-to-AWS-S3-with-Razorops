@@ -1,6 +1,6 @@
 tasks:
-  rspec:
-    runner: ruby:2.6 
+  build-deps:
+    runner: ruby:2.7
     steps:
     - run: bundle install
 
