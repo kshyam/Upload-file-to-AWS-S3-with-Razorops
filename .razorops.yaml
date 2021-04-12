@@ -4,11 +4,11 @@ tasks:
     steps:
     - run: bundle install
 
-deploy:
-  depends: [build]
-  - image: amazon/aws-cli
-  steps:
-  - commands:
-    - aws --version
-    - aws s3 rm s3://$S3_BUCKET --recursive
-    - aws s3 cp public s3://$S3_BUCKET --recursive
+# deploy:
+#   depends: [build]
+#   - image: amazon/aws-cli
+#   steps:
+#   - commands:
+#     - aws --version
+#     - aws s3 rm s3://$S3_BUCKET --recursive
+#     - aws s3 cp public s3://$S3_BUCKET --recursive
