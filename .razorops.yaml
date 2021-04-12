@@ -1,0 +1,21 @@
+global:
+  runner:
+    containers:
+    - image: razorci/ruby
+    - image: amazon/aws-cli
+
+tasks:
+  build:
+    - image: razorci/ruby
+    steps:
+    - run: bundle install
+    # - run: jekyll build
+
+deploy:
+  depends: [build]
+  - image: amazon/aws-cli
+  steps:
+  - commands:
+    - aws --version
+    - aws s3 rm s3://$S3_BUCKET --recursive
+    - aws s3 cp public s3://$S3_BUCKET --recursive
